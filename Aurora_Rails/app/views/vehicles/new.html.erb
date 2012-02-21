@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vehicles Homepage</title>
+</head>
+	<body>
+		<h1>Create a new vehicle!</h1>
+			<%= form_for(@vehicle, :html => {:multipart => true}) do |f| %>
+				<p>	
+						<%= f.label :vehicle_id, "ID Number" %> <br />
+						<%= f.text_field :vehicle_id %>
+				</p>
+				<p>
+					<%= f.submit "Add new vehicle to database" %>
+				</p>
+			<% end %>
+	</body>
+</html>
