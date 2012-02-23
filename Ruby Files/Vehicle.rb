@@ -13,28 +13,20 @@ class Vehicle
     @routes = Array.new
     @current_route = nil
     @current_step = nil
-    if location.is_a? Location
-      @location = location
-    else
-      raise "current location must be of type Location"
-    end
+    @location = location
   end
 
   def pickup(dest, package)
-    if dest.is_a? Location
-      if @routes.last!= nil
-        #append new trip to this dest
-        @routes << Trip.new(@routes.last.destination, dest, self, package)
-        @time_to_final += @routes.last.total_time
-      else
-        @routes << Trip.new(@location, dest, self, package) # go straight to dest, no current trips
-        @current_route = @routes[0].steps.to_enum
-        @time_to_final = @routes[0].total_time
-        @time_to_next = @routes[0].total_time
-        next_step()
-      end
+    if @routes.last!= nil
+      #append new trip to this dest
+      @routes << Trip.new(@routes.last.destination, dest, self, package)
+      @time_to_final += @routes.last.total_time
     else
-      raise "destination must be a Location"
+      @routes << Trip.new(@location, dest, self, package) # go straight to dest, no current trips
+      @current_route = @routes[0].steps.to_enum
+      @time_to_final = @routes[0].total_time
+      @time_to_next = @routes[0].total_time
+      next_step()
     end
   end
 
@@ -82,12 +74,10 @@ class Vehicle
   #returns the time (in seconds) it would take for Vehicle to get to location
   #assumes that it would slap on the trip at the end
   def time_from(loc)
-    if loc.is_a? Location
-      if @routes.last != nil
-        return Trip.new(@location, loc, self).total_time + @time_to_final
-      else #no trips, they can go right there
-        return Trip.new(@location, loc, self).total_time
-      end
+    if @routes.last != nil
+      return Trip.new(@location, loc, self).total_time + @time_to_final
+    else #no trips, they can go right there
+      return Trip.new(@location, loc, self).total_time
     end
   end
 

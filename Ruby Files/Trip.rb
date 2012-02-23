@@ -24,16 +24,8 @@ class Trip
   attr_accessor :fare
   attr_reader :origin, :destination, :steps, :total_dist, :total_time, :vehicle, :package
   def initialize(origin, destination, vehicle, package=nil)
-    if origin.is_a? Location
-      @origin = origin
-    else
-      raise "origin (param 1) must be of type Location, homeboy!"
-    end
-    if destination.is_a? Location
-      @destination = destination
-    else
-      raise "destination (param 2) must be of type Location, homeboy!"
-    end
+    @origin = origin
+    @destination = destination
     @total_time = 0
     @total_dist = 0
     @steps = Array.new()
