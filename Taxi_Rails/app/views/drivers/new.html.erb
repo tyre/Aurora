@@ -1,0 +1,11 @@
+<h1>New Driver</h1>
+
+<% form_for @person do |f| %>
+  <%= f.label :fname %>:
+  <%= f.text_field :fname %><br />
+
+  <%= f.label :lname %>:
+  <%= f.text_field :lname %><br />
+
+  <%= f.submit %>
+<% end %>
