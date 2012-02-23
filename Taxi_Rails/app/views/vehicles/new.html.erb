@@ -1,11 +1,2 @@
 <h1>Create a new Vehicle</h1>
-<%= form_for(@vehicle) do |f| %>
-  <p>
-    <%= f.label :driver_id %><br/>
-    <%= f.text_field :driver_id %>
-  </p>
-
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+<%= render :partial => "form" %>

@@ -1,0 +1,8 @@
+<h1>Vehicles Index Page</h1>
+
+<h3>Vehicles:</h3>
+<% @vehicles.each do |v| %>
+  <p><%=link_to v.id, vehicle_path(v) %> <%= link_to "Edit", edit_vehicle_path(v)%> </p> 
+<% end %>
+
+<%= link_to "Create a new Vehicle", new_vehicle_path %>

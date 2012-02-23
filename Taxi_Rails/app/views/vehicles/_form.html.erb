@@ -1,0 +1,20 @@
+<%= form_for(@vehicle) do |f| %>
+  <p>
+    <%= f.label :driver_id %><br/>
+    <%= f.text_field :driver_id %>
+  </p>
+
+  <p>
+    <%= f.label :latitude %><br/>
+    <%= f.text_field :latitude %>
+  </p>
+
+  <p>
+    <%= f.label :longitude %><br/>
+    <%= f.text_field :longitude %>
+  </p>
+
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>

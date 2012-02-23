@@ -1,1 +1,14 @@
 <h1>Vehicle <%= @vehicle.id %></h1>
+<% if @driver %>
+  Driver: <%= @driver.id %>
+<% else %>
+  <p>No driver assigned to theis vehicle</p>
+<% end %>
+
+<% if @vehicle.latitude && @vehicle.longitude %>
+  <p>Coordinates: <%=@vehicle.latitude %>, <%= @vehicle.longitude %></p>
+<% else %>
+  <p>No coordinates in the system</p>
+<% end %>
+
+<%= link_to "Back to the Index", vehicles_path %>
