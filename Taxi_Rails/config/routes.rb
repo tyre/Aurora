@@ -1,3 +1,3 @@
 TaxiRails::Application.routes.draw do
-  resources :articles, :drivers, :trips
+  resources :vehicles, :drivers, :trips
 end
