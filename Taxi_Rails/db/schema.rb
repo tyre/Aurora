@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223162922) do
+ActiveRecord::Schema.define(:version => 20120223163846) do
 
   create_table "drivers", :force => true do |t|
     t.string   "fname"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20120223162922) do
     t.float    "longitude"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "driver_id"
   end
 
 end
