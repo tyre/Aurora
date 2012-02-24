@@ -7,8 +7,9 @@
 
 <% if @vehicle.latitude && @vehicle.longitude %>
   <p>Coordinates: <%=@vehicle.latitude %>, <%= @vehicle.longitude %></p>
+  <img src=<%= geo_image(@vehicle.latitude, @vehicle.longitude) %>><br>
 <% else %>
-  <p>No coordinates in the system</p>
+  <p>No coordinates in the system :(</p>
 <% end %>
 
 <%= link_to "Back to the Index", vehicles_path %>

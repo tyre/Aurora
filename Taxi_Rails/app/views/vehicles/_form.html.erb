@@ -1,7 +1,7 @@
 <%= form_for(@vehicle) do |f| %>
   <p>
     <%= f.label :driver_id %><br/>
-    <%= f.text_field :driver_id %>
+    <%= f.select(:driver_id, @d_array) %>
   </p>
 
   <p>

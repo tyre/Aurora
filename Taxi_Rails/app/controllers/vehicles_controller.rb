@@ -5,6 +5,9 @@ class VehiclesController < ApplicationController
 
   def new
     @vehicle = Vehicle.new
+    @d_array = Driver.all.map { |d|
+      [d.fname+' '+d.lname,d.id]  }
+
   end
 
   def show
