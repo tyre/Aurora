@@ -5,3 +5,6 @@
     <li><%= driver.id %> <%= link_to driver.lname + ", " + driver.fname, driver_path(driver) %></li>
   <% end %>
 </ul>
+<br/>
+<br/>
+<%= link_to "Create a new driver", new_driver_path %>

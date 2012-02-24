@@ -1,3 +1,6 @@
 <h1>Driver <%= @driver.id %></h1>
-First Name: <%= @driver.fname %>
-Last Name: <%= @driver.lname %>
+First Name: <%= @driver.fname %> <br/>
+Last Name: <%= @driver.lname %> <br/>
+
+<%= link_to "<< Back to index", drivers_path %> <br/>
+<%= link_to "Delete this driver", driver_path(@driver), :method => :delete, :confirm => "Are you sure you want to delete driver #{@driver.id} from the system?" %>
