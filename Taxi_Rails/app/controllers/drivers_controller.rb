@@ -1,21 +1,17 @@
 class DriversController < ApplicationController
   def index
     @drivers = Driver.all
-    render "index"
   end
 
   def new
     @driver = Driver.new
-    render "new"
   end
 
   def create
     @driver = Driver.new(params[:driver])
-    if @driver.save
-      redirect_to @driver
-    else
-      render "new"
-    end
+    @driver.save
+    flash[:message] = "Successfully created Driver #{@driver.id}"
+    redirect_to driver_path(@driver)
   end
 
   def show

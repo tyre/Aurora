@@ -2,6 +2,6 @@
 
 <ul>
   <% for driver in @drivers %>
-    <li><%= driver.lname %>, <%= driver.fname %></li>
+    <li><%= driver.id %> <%= link_to driver.lname + ", " + driver.fname, driver_path(driver) %></li>
   <% end %>
 </ul>
