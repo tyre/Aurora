@@ -1,0 +1,9 @@
+class DriversController < ApplicationController
+<<<<<<< HEAD
+=======
+  def index
+    @drivers = Driver.all
+    render "index"
+  end
+>>>>>>> Drivers controller
+end
