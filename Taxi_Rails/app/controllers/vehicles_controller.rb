@@ -5,8 +5,7 @@ class VehiclesController < ApplicationController
 
   def new
     @vehicle = Vehicle.new
-    @d_array = Driver.all.map { |d|
-      [d.fname+' '+d.lname,d.id]  }
+    @d_array = Driver.all.map { |d| [d.fname+' '+d.lname,d.id] }
 
   end
 
@@ -28,6 +27,7 @@ class VehiclesController < ApplicationController
 
   def edit
     @vehicle = Vehicle.find(params[:id])
+    @d_array = Driver.all.map { |d| [d.fname+' '+d.lname,d.id] }
   end
 
   def update
@@ -37,4 +37,10 @@ class VehiclesController < ApplicationController
     redirect_to vehicle_path(@vehicle)
   end
 
+  def destroy
+    @vehicle = Vehicle.find(params[:id])
+    @vehicle.destroy
+    flash[:message] = "Vehicle #{@vehicle.id} deleted!"
+    redirect_to vehicles_path
+  end
 end
